@@ -3,8 +3,19 @@
     transition: transform 0.3s;
     cursor: pointer;
     margin: 15px 0px;
+    position: relative;
 }
 
 .proyectsCard-component:hover{
     transform: scale(1.2);
+}
+
+.ProyectsCard-component__state{
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }

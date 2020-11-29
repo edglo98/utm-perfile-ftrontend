@@ -8,7 +8,7 @@ import { useFetch } from '../../hooks/useFetch';
 import Spineer from '../Spinner';
 import "./styles.css"
 
-export default function ProyectCard({ _id, photo, name }) {
+export default function ProyectCard({ _id, photo, name, publicated }) {
     
     const URI = constants.uri;
     const history = useHistory();
@@ -26,15 +26,16 @@ export default function ProyectCard({ _id, photo, name }) {
                 <Card.Img variant="top" src={ photo[0]? URI+photo[0].url : images.bgDefault } />
                 <Card.Body>
                     <Card.Title>{ name }</Card.Title>
-                    <Card.Text>
-                        Tecnologias:<br/>
+                    Tecnologias:
+                    <Card.Text style={{display: "flex", flexWrap: "wrap"}}>
                         {
                             loading? <Spineer/> : data[0].categories.map((category)=>{
-                                return category.name+" "
+                                return <p key={category._id} style={{color: category.color, fontWeight: "bold", margin: 5}} > {category.name} </p>
                             })
                         }
                     </Card.Text>
                 </Card.Body>
+                <span className="ProyectsCard-component__state" style={{backgroundColor: publicated? "green" : "red" }}/>
             </Card>
         </Col>
     )

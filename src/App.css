@@ -13,3 +13,6 @@ body.dark {
 *{
   box-sizing: border-box;
 }
+code{
+  color: #19A8A0!important
+}
