@@ -1,0 +1,10 @@
+.proyectsCard-component{
+    width: 100%;
+    transition: transform 0.3s;
+    cursor: pointer;
+    margin: 15px 0px;
+}
+
+.proyectsCard-component:hover{
+    transform: scale(1.2);
+}

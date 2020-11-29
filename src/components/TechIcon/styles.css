@@ -1,0 +1,13 @@
+.abilities-tech__item{
+    display: block;
+    margin: 5px 10px;
+    width: 70px;
+    height: 70px;
+    mask-size: cover!important;
+}
+@media(max-width: 480px){
+    .abilities-tech__item{
+        width: 52px;
+        height: 52px;
+    }
+}
