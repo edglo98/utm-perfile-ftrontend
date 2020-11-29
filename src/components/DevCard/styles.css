@@ -1,0 +1,9 @@
+.devCard-component{
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.devCard-component:hover{
+    transform: scale(1.1);
+}

@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 import { constants } from '../../assets/constants';
 import { useFetch } from '../../hooks/useFetch';
 import Spinner from "../../components/Spinner";
-import PerfileCard from "../../components/PerfileCard"
+import DevCard from '../../components/DevCard';
 
 export default function AllProyectsPage() {
 
@@ -17,7 +17,7 @@ export default function AllProyectsPage() {
                     loading?
                         <Spinner />
                         : data.map((dev)=>{
-                            return <Col  xs={12} sm={6} key={dev._id}><PerfileCard  {...dev} /></Col>
+                            return <Col md={6} key={dev._id}><DevCard {...dev} /></Col>
                         })
                 }
             </Row>
