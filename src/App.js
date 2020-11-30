@@ -8,7 +8,7 @@ import { useEffect } from "react";
 function App() {
 
   useEffect(() => {
-    ReactGa.initialize('G-V1CC0QNZGE')
+    ReactGa.initialize('UA-164742055-2')
     
     //to report page view
     ReactGa.pageview(window.location.pathname + window.location.search)
