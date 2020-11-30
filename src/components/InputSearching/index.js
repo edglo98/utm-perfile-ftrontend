@@ -1,35 +1,46 @@
-import React, { useCallback, useEffect } from "react";
-import _ from "lodash";
+import React, { useCallback, useEffect, useState } from "react";
+import { debounce } from "lodash";
 import images from "../../assets/images"
 import { useLocation } from 'react-router-dom';
 import queryString from "query-string";
 import "./styles.css"
 
 
+    
 export default function InputSearch ({history , setSearchValue, placeholder }) {
   const _placeholder = placeholder ? placeholder : "search...";
 
+  const [first, setfirst ] = useState(true)
   
   const { search } = useLocation();
   const query = queryString.parse(search).username
-  const delayedSetState = useCallback(_.debounce(q => setSearchValue(q), 500), []);
+
+  const delayedSetState = debounce(q => setSearchValue(q), 500)
   
   const stateSearch = useCallback((e) => {
-    delayedSetState(e.target.value)
-    !!e.target.value? history.push(`?username=${ e.target.value }`) : history.push(`?`)
+
+    let val = e.target.value
+    delayedSetState(val)
+
+    if(!!val){
+      history.push(`?username=${ val }`)
+    }else{
+      history.push("?") 
+    }
+  
   },[delayedSetState, history])
 
   useEffect(()=>{
-    if(query){
-        const e = {
-            target: {
-                value: query
-            }
+    if(query && first){
+      const e = {
+        target: {
+          value: query
         }
-        stateSearch(e)
+      }
+      setfirst(false)
+      return stateSearch(e)
     }
-  },[query, stateSearch ])
-
+  },[setfirst, first, query, stateSearch])
 
 
   return (
