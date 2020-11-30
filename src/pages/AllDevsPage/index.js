@@ -12,6 +12,9 @@ export default function AllProyectsPage() {
 
     return (
         <Container>
+            <h1>
+                Aquí puedes ver todos los <b>desarrolladores</b> con los que contamos.
+            </h1>
             <Row>
                 {
                     loading?

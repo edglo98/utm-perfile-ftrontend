@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Button, Col, Container, Row } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { constants } from "../../assets/constants"
 import Spineer from '../../components/Spinner';
 import { useFetch } from "../../hooks/useFetch";
@@ -19,6 +19,12 @@ export default function DevsPage() {
     const { data, loading } = useFetch(`${ URI }/users?username=${ username }`);
 
     const user = loading? [] : data[0]
+
+    const history = useHistory()
+
+    const handleSetContact = ( u ) => {
+        history.push(`/contacto?username=${ u }`)
+    }
 
     return (
         <Container>
@@ -46,7 +52,7 @@ export default function DevsPage() {
                             </a>
                         </Row>
                         <Row style={{justifyContent: "center"}}>
-                            <Button variant="info">
+                            <Button variant="info" onClick={ ()=>handleSetContact( user.username ) }>
                                 Contactame
                             </Button>
                         </Row>
