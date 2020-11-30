@@ -27,7 +27,7 @@ export default function ProyectCard({ _id, photo, name, publicated }) {
 
     return (
         <Col xs={6} lg={3} className="proyectsCard-component" onClick={ handleHhistory }>
-            <Card style={{color: theme? "white" : "#2b2f33", padding: 5 }}  bg={theme? "dark" : "light"}>
+            <Card style={{color: theme? "white" : "#2b2f33", padding: 5, height: "100%" }}  bg={theme? "dark" : "light"}>
                 <Card.Img variant="top" src={ photo[0]? URI+photo[0].url : images.bgDefault } />
                 <Card.Body>
                     <Card.Title>{ name }</Card.Title>
