@@ -18,6 +18,7 @@ import Sql from "./sql.svg"
 import UTM from "./UTM.png"
 import bgDefault from "./def.jpg"
 import Dominio from "./dominio.svg"
+import Loup from "./loupe.svg"
 
 export default{
     Github,
@@ -39,5 +40,6 @@ export default{
     Sql,
     UTM,
     bgDefault,
-    Dominio
+    Dominio,
+    Loup
 }

@@ -27,13 +27,13 @@ export default function ProyectCard({ _id, photo, name, publicated }) {
                 <Card.Body>
                     <Card.Title>{ name }</Card.Title>
                     Tecnologias:
-                    <Card.Text style={{display: "flex", flexWrap: "wrap"}}>
+                    <div style={{display: "flex", flexWrap: "wrap"}}>
                         {
                             loading? <Spineer/> : data[0].categories.map((category)=>{
                                 return <p key={category._id} style={{color: category.color, fontWeight: "bold", margin: 5}} > {category.name} </p>
                             })
                         }
-                    </Card.Text>
+                    </div>
                 </Card.Body>
                 <span className="ProyectsCard-component__state" style={{backgroundColor: publicated? "green" : "red" }}/>
             </Card>
