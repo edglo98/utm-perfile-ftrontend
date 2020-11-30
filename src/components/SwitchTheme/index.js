@@ -24,7 +24,7 @@ export default function SwitchTheme () {
             setTheme(false)
             document.body.classList.remove("dark")
         }
-    },[])
+    },[setTheme])
 
     return (
         <button  className={`swtchtheme-button ${theme && "swtchtheme-button__darkBG"}`} onClick={onDarkMode}>

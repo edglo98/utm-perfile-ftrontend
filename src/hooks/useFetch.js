@@ -13,15 +13,12 @@ export const useFetch = ( url ) => {
         fetch(url)
             .then( resp => resp.json() )
             .then( data => {
-
-                setTimeout(() => {
-                    setState({
-                        data,
-                        error: null,
-                        loading: false
-                    })
-                    
-                }, 1000);
+                
+                setState({
+                    data,
+                    error: null,
+                    loading: false
+                })
 
             }).catch(
                 error => setState({

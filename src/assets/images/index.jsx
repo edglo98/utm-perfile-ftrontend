@@ -20,7 +20,7 @@ import bgDefault from "./def.jpg"
 import Dominio from "./dominio.svg"
 import Loup from "./loupe.svg"
 
-export default{
+const images = {
     Github,
     Linkedin,
     Instagram,
@@ -43,3 +43,5 @@ export default{
     Dominio,
     Loup
 }
+
+export default images

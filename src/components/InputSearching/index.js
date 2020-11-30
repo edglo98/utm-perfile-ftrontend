@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect } from "react";
 import _ from "lodash";
-import SocialIcons from "../../components/SocialIcons";
 import images from "../../assets/images"
 import { useLocation } from 'react-router-dom';
 import queryString from "query-string";
@@ -13,6 +12,12 @@ export default function InputSearch ({history , setSearchValue, placeholder }) {
   
   const { search } = useLocation();
   const query = queryString.parse(search).username
+  const delayedSetState = useCallback(_.debounce(q => setSearchValue(q), 500), []);
+  
+  const stateSearch = useCallback((e) => {
+    delayedSetState(e.target.value)
+    !!e.target.value? history.push(`?username=${ e.target.value }`) : history.push(`?`)
+  },[delayedSetState, history])
 
   useEffect(()=>{
     if(query){
@@ -23,14 +28,9 @@ export default function InputSearch ({history , setSearchValue, placeholder }) {
         }
         stateSearch(e)
     }
-  },[query])
+  },[query, stateSearch ])
 
-  const delayedSetState = useCallback(_.debounce(q => setSearchValue(q), 500), []);
 
-  const stateSearch = (e) => {
-        delayedSetState(e.target.value)
-        !!e.target.value? history.push(`?username=${ e.target.value }`) : history.push(`?`)
-  };
 
   return (
       <div style={{position: "relative"}}>
