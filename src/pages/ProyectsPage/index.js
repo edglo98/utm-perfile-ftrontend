@@ -24,7 +24,7 @@ export default function ProyectsPage() {
                             <h1 style={{ fontWeight: "bold" }}>
                                 { data[0].name }
                             </h1>
-                            <Image style={{ margin:"10px auto", width: "100%", maxWidth:800}} src={data[0].photo[0]? URI+data[0].photo[0].url : images.bgDefault} fluid />
+                            <Image style={{ margin:"10px auto", width: "100%", maxWidth:800, height: "100%"}} src={data[0].photo[0]? URI+data[0].photo[0].url : images.bgDefault} fluid />
                         </Row>
                         <Row>
                             <Col >

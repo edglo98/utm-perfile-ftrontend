@@ -24,7 +24,7 @@ export default function HomaPage() {
                     <b>Bienvenido</b> a la plataforma de estudiantes <b>UTM</b>
                 </h1>
                 <Row >
-                    <Image src={images.UTM} fluid style={{width: "70%", margin: "40px auto"}} />
+                    <Image src={images.UTM} fluid style={{width: "70%", margin: "40px auto", height: "100%"}} />
                 </Row>
                 <Row>
                     <h4>

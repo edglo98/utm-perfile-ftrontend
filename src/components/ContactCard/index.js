@@ -15,7 +15,7 @@ export default function ContactCard({ name, photo, lastname, username, email, lo
             <Card style={{color: theme? "white" : "#2b2f33", width: "90%", padding: 10, margin: "0px auto"}} bg={theme? "dark" : "light"}>
                 <Row style={{alignItems: "center", flexWrap: "wrap"}}>
                     <Col xs={12} md={3} style={{justifyContent: "center",display: "flex"}}>
-                        <Image style={{width: "100%", minWidth: 100, maxWidth: 135}} src={ URI+photo.url } roundedCircle />
+                        <Image style={{width: "100%", height: "100%" , minWidth: 100, maxWidth: 135}} src={ URI+photo.url } roundedCircle />
                     </Col>
                     <Col xs={12} md={4}>
                         <h3 style={{textAlign: "center"}}>
