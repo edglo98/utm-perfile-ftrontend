@@ -2,11 +2,16 @@ import React, { useContext, useEffect } from "react"
 import "./styles.css"
 import icon from "../../assets/images"
 import { ThemeContext } from "../../context/theme";
+import ReactGa from "react-ga"
 
 export default function SwitchTheme () {
     const [ theme , setTheme] = useContext(ThemeContext);
 
     const onDarkMode = () => {
+        ReactGa.event({
+            category: `ButtonClick`,
+            action: `switch theme button`
+        })
         document.body.classList.toggle("dark")
         setTheme(!theme)
         if(document.body.classList.contains("dark")){

@@ -11,6 +11,7 @@ import TechIcon from '../../components/TechIcon';
 import SocialIcons from '../../components/SocialIcons';
 import images from '../../assets/images';
 import { ThemeContext } from '../../context/theme';
+import ReactGa from "react-ga"
 
 export default function DevsPage() {
     const [ theme ] = useContext(ThemeContext);
@@ -23,6 +24,10 @@ export default function DevsPage() {
     const history = useHistory()
 
     const handleSetContact = ( u ) => {
+        ReactGa.event({
+            category: `ButtonClick`,
+            action: `Click on its ouwn button from the ${ username } perfile`
+        })
         history.push(`/contacto?username=${ u }`)
     }
 

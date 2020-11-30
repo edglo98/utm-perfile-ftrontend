@@ -4,14 +4,19 @@ import { ThemeContext } from '../../context/theme';
 import PerfileCard from "../../components/PerfileCard"
 import "./styles.css"
 import { useHistory } from 'react-router-dom';
+import ReactGa from "react-ga"
 
 export default function DevCard( dev ) {
-    const { biography, location, proyects, categories } = dev;
+    const { biography, location, proyects, categories, username } = dev;
     const [ theme ] = useContext(ThemeContext);
 
     const history = useHistory();
 
     function handleHhistory() {
+        ReactGa.event({
+            category: `CardClick`,
+            action: `Click the ${ username }'s card from all devs page`
+        })
         history.push(`/devs/${ dev.username }`);
     }
 

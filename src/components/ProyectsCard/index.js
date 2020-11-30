@@ -7,6 +7,7 @@ import { ThemeContext } from '../../context/theme';
 import { useFetch } from '../../hooks/useFetch';
 import Spineer from '../Spinner';
 import "./styles.css"
+import ReactGa from "react-ga"
 
 export default function ProyectCard({ _id, photo, name, publicated }) {
     
@@ -17,6 +18,10 @@ export default function ProyectCard({ _id, photo, name, publicated }) {
     const { data, loading } = useFetch(`${ URI }/proyects?_id=${ _id }`);
     
     function handleHhistory() {
+        ReactGa.event({
+            category: `CardClick`,
+            action: `Click the '${ name }' protyect  from proyects or perfile page`
+        })
         history.push(`/proyectos/${ _id }`);
     }
 
